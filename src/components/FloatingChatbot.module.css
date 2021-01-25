@@ -1,0 +1,57 @@
+@keyframes bounciness_anime {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.circle { border-radius: 50%; }
+.border { border: 5px solid #0099cc; }
+
+.chatbot {
+  width: 286px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row-reverse;
+  animation: bounciness_anime 3s infinite;
+
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+}
+
+.chatbot:hover {
+  -webkit-animation-play-state:paused;
+  -moz-animation-play-state:paused;
+  -o-animation-play-state:paused;
+  animation-play-state:paused;
+}
+
+.speech-wrapper {
+  position: relative;
+}
+
+.speech {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #8de055;
+  margin: 0;
+}
+
+.speech:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -10px;
+  top: 10px;
+  border-left: 20px solid #8de055;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
