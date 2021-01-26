@@ -2,7 +2,9 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 import styles from "./ChatApp.module.css";
-import {SelfSpeechBubble, TextMessage} from './SelfSpeechBubble';
+import {SelfSpeechBubble, TextMessage as SelfTextMessage} from './SelfSpeechBubble';
+import {SpeechBubble, TextMessage} from './SpeechBubble';
+import person from '../icon.png';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +15,10 @@ export default function ChatApp() {
     setMessage(event.target.value);
   }
   const handleSubmit = (event) => {
-    setMessages(prevState => prevState.concat(message))
+    setMessages(prevState => prevState.concat([
+      { message, isMe: true },
+      { message: "そうなの！！", isMe: false }
+    ]))
     setMessage('');
     event.preventDefault();
   }
@@ -25,11 +30,24 @@ export default function ChatApp() {
       </div>
   
       <div className={cx("line-contents", "scroll")}>
-        {messages.map((message, i) => (
-          <SelfSpeechBubble key={i} timestamp="0:30">
-            <TextMessage>{message}</TextMessage>
-          </SelfSpeechBubble>
-        ))}
+        {
+          messages.map(({message, isMe}, i) => {
+            if(isMe) {
+              return (
+                <SelfSpeechBubble key={i} timestamp="0:30">
+                  <SelfTextMessage>{message}</SelfTextMessage>
+                </SelfSpeechBubble>
+              )
+            }
+            return (
+              <SpeechBubble key={i} avatar={person}
+                            userName={"うさきち"}>
+                <TextMessage>{message}</TextMessage>
+              </SpeechBubble>
+            );
+          })
+        }
+
 
       </div>
       
