@@ -12,12 +12,13 @@
 
 .circle { border-radius: 50%; }
 .border { border: 5px solid #0099cc; }
+.d-none { display:none; }
 
 .chatbot {
   width: 286px;
   display: flex;
   align-items: flex-end;
-  flex-direction: row-reverse;
+  flex-direction: row-reverse;  
   animation: bounciness_anime 3s infinite;
 
   position: fixed;

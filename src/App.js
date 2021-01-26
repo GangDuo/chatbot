@@ -1,7 +1,9 @@
 import React from 'react';
 
-import FloatingChatbot from './components/FloatingChatbot';
+import { createFloatingChatbot } from './components/FloatingChatbot';
 import './App.css';
+
+const FloatingChatbot = createFloatingChatbot('#root');
 
 function App() {  
   return (
