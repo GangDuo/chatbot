@@ -1,0 +1,42 @@
+/* チャット画面 */
+.line-container {
+  padding:0;
+  background: #7494c0;
+  min-width: 300px;
+  max-width: 400px;
+  /*
+  overflow: hidden;
+  margin: 20px auto;
+  font-size: 80%;
+  */
+}
+
+/* タイトル部分 */
+.line-title {
+  background: #273246;
+  padding: 10px;
+  text-align: center;
+  font-size: 150%;
+  color: #ffffff;
+}
+
+/* 会話部分 */
+.line-contents {
+  padding: 10px;
+  overflow: hidden;
+  /*line-height: 135%;*/
+}
+
+.scroll {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.line-footer {
+  display: flex;
+  background: #ddd;
+  padding: 10px;
+  text-align: center;
+  /*font-size: 150%;*/
+  color: #666;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 
+import ChatApp from './ChatApp';
+
 export function createModalChat(appElement) {
   const customStyles = {
     content : {
@@ -9,19 +11,16 @@ export function createModalChat(appElement) {
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+      transform             : 'translate(-50%, -50%)',
+      padding               : 0,
     }
   };
 
   Modal.setAppElement(appElement);
 
   return function ModalChat({ modalIsOpen, onRequestClose }) {
-    var subtitle;
-    function afterOpenModal() {
-      // references are now sync'd and can be accessed.
-      subtitle.style.color = '#f00';
-    }  
-
+    function afterOpenModal() {}  
+  
     return (
       <Modal
         isOpen={modalIsOpen}
@@ -30,9 +29,7 @@ export function createModalChat(appElement) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <h2 ref={_subtitle => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={onRequestClose}>close</button>
-        <div>I am a modal</div>
+        <ChatApp />
       </Modal>
     )
   };
