@@ -2,16 +2,18 @@ import React from 'react';
 import classNames from 'classnames/bind';
 
 import styles from "./ChatApp.module.css";
+import {SelfSpeechBubble, TextMessage} from './SelfSpeechBubble';
 
 const cx = classNames.bind(styles);
 
 export default function ChatApp() {
   const [message, setMessage] = React.useState('');
+  const [messages, setMessages] = React.useState([]);
   const handleChange = (event) => {
     setMessage(event.target.value);
   }
   const handleSubmit = (event) => {
-    alert('A name was submitted: ' + message);
+    setMessages(prevState => prevState.concat(message))
     setMessage('');
     event.preventDefault();
   }
@@ -23,6 +25,12 @@ export default function ChatApp() {
       </div>
   
       <div className={cx("line-contents", "scroll")}>
+        {messages.map((message, i) => (
+          <SelfSpeechBubble key={i} timestamp="0:30">
+            <TextMessage>{message}</TextMessage>
+          </SelfSpeechBubble>
+        ))}
+
       </div>
       
       <div className={cx("line-footer")}>

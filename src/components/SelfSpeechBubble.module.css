@@ -1,0 +1,52 @@
+/* 自分の会話 */
+.line-right {
+  position: relative;
+  display: block;
+  margin: 5px 0;
+  max-width: 75%;
+  float: right;
+  margin-right: 15px;
+  clear: both;
+}
+
+/* 自分がスタンプを送る時 */
+.stamp {
+  position: relative;
+  margin-left: 80px;
+}
+
+/* コメントエリア */
+.text {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #8de055;
+  margin: 0;
+  margin-left: 80px;
+}
+
+/* 吹き出し */
+.text::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -10px;
+  top: 10px;
+  border-left: 20px solid #8de055;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* 既読エリア */
+.date {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100px;
+  text-align: right;
+  left: -30px;
+  bottom: 0px;
+  font-size: 80%;
+  color: #ffffff;
+}
