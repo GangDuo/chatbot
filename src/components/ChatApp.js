@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 
+import Stamp from './Stamp';
 import styles from "./ChatApp.module.css";
 import {SelfSpeechBubble, TextMessage as SelfTextMessage} from './SelfSpeechBubble';
 import {SpeechBubble, TextMessage} from './SpeechBubble';
 import person from '../icon.png';
+import stamp13 from '../stamp/13.png';
 
 const cx = classNames.bind(styles);
 
@@ -43,6 +45,8 @@ export default function ChatApp() {
               <SpeechBubble key={i} avatar={person}
                             userName={"うさきち"}>
                 <TextMessage>{message}</TextMessage>
+                <Stamp><img src={stamp13} alt="stamp" /></Stamp>
+                <Stamp src={stamp13} />
               </SpeechBubble>
             );
           })
